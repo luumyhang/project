@@ -5,6 +5,7 @@ $.ajaxSetup({
 });
 
 function removeRow(id, url) {
+    console.log(id, url)
     if (confirm('Xóa mà không thể khôi phục. Bạn có chắc ?')) {
         $.ajax({
             type: 'DELETE',

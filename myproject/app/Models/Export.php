@@ -16,33 +16,23 @@ class Export extends Model
         'total_price'
     ];
 
-    /**
-     * Get the user associated with the Export
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
-     */
-    public function exporter(): HasOne
+    public function exporter()
     {
         return $this->hasOne(User::class, 'id', 'exporter_id');
     }
 
-    /**
-     * Get the user associated with the Export
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
-     */
-    public function receiver(): HasOne
+    public function receiver()
     {
         return $this->hasOne(User::class, 'id', 'receiver_id');
     }
 
-    /**
-     * The roles that belong to the Export
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
-     */
-    public function products(): BelongsToMany
+    public function products()
     {
-        return $this->belongsToMany(Product::class, 'export_products', 'product_id', 'export_id');
+        return $this->belongsToMany(Product::class, 'export_products');
+    }
+
+    public function export_products()
+    {
+        return $this->hasMany(ExportProduct::class, 'export_id', 'id');
     }
 }

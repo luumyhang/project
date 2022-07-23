@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\MainController;
 use App\Http\Controllers\Admin\MenuController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\SliderController;
+use App\Http\Controllers\Admin\ExportController;
 
 Route::get('login', [LoginController::class, 'index'])->name('login');
 Route::post('admin/users/login/store', [LoginController::class, 'store']);
@@ -37,8 +38,18 @@ Route::middleware(['auth'])->group(function () {
             Route::DELETE('destroy', [ProductController::class, 'destroy']);
         });
 
- 
+        #Export
+        Route::prefix('exports')->group(function () {
+            Route::get('list', [ExportController::class, 'index'])->name('admin.export.list');
+            Route::get('add', [ExportController::class, 'create'])->name('admin.export.create');
+            Route::post('add', [ExportController::class, 'store'])->name('admin.export.add');
+            Route::get('exports/{id}', [ExportController::class, 'show'])->name('admin.export.show');
+            Route::post('exports/{id}', [ExportController::class, 'update'])->name('admin.export.update');
+            Route::DELETE('destroy', [ExportController::class, 'destroy'])->name('admin.export.destroy');
+            Route::get('bill/{id}]', [ExportController::class, 'bill'])->name('admin.export.bill');
+        });
 
+ 
         #Upload
         Route::post('upload/services', [\App\Http\Controllers\Admin\UploadController::class, 'store']);
 

@@ -18,7 +18,6 @@
             </div>
         </div>
 
-
         <!-- Sidebar Menu -->
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
@@ -44,7 +43,6 @@
                                 <p>Danh Sách Danh Mục</p>
                             </a>
                         </li>
-
                     </ul>
                 </li>
 
@@ -68,11 +66,8 @@
                                 <p>Danh Sách Sản Phẩm</p>
                             </a>
                         </li>
-
                     </ul>
                 </li>
-
-                
 
                 <li class="nav-item">
                     <a href="#" class="nav-link">
@@ -88,7 +83,29 @@
                                 <p>Danh Sách Đơn Hàng</p>
                             </a>
                         </li>
+                    </ul>
+                </li>
 
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-upload"></i>
+                        <p> Xuất Kho
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('admin.export.create') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Tạo phiếu xuất kho</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('admin.export.list') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Danh Sách Xuất Kho</p>
+                            </a>
+                        </li>
                     </ul>
                 </li>
             </ul>
