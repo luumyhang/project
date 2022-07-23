@@ -39,11 +39,11 @@ $('#upload').change(function () {
         success: function (results) {
             if (results.error === false) {
                 $('#image_show').html('<a href="' + results.url + '" target="_blank">' +
-                    '<img src="' + results.url + '" width="100px"></a>');
-
+                    '<img src="' + results.url + '" width="500px"></a>');
                 $('#thumb').val(results.url);
             } else {
-                alert('Upload File Lỗi');
+                $('#upload').val('');
+                alert('Vui lòng tải lên đúng định dạng');
             }
         }
     });

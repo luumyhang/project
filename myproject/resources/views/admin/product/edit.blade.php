@@ -63,7 +63,7 @@
                 <input type="file"  class="form-control" id="upload">
                 <div id="image_show">
                     <a href="{{ $product->thumb }}" target="_blank">
-                        <img src="{{ $product->thumb }}" width="100px">
+                        <img src="{{ $product->thumb }}" width="500px">
                     </a>
                 </div>
                 <input type="hidden" name="thumb" value="{{ $product->thumb }}" id="thumb">

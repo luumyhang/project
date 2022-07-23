@@ -17,6 +17,14 @@ class UploadController extends Controller
 
     public function store(Request $request)
     {
+        $validator = \Validator::make($request->all(), [
+            'file' => 'required|image|mimes:jpeg,png,jpg,gif,svg'
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json(['error' => true, 'a' => $request->all()]);
+        }
+
         $url = $this->upload->store($request);
         if ($url !== false) {
             return response()->json([
